@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="site.css">
+</head>
+
+<body>
+    <section>
+        <main>
+            <h1>Mega Man Quotes</h1>
+            <img src="Mega Man.png" atl="Mega Man">
+            <div id="quote"></div>
+        </main>
+        <footer>
+            <a href="https://mythicant.com">Mythicant</a>
+            <a href="api">API</a>
+            <a href="about">About</a>
+        </footer>
+    </section>
+
+    <script>
+        function getQuote() {
+            fetch('https://mega-man-quotes.azurewebsites.net/random-quote')
+                .then(res => res.json())
+                .then(data => {
+                    var quote = data;
+                    var quoteDiv = document.getElementById('quote');
+                    console.log(quoteDiv);
+                    var quoteText = document.createElement('q');
+                    quoteText.id = 'quote-text';
+                    quoteText.innerHTML = quote.text;
+                    quoteDiv.appendChild(quoteText);
+                    var quoteAuthor = document.createElement('p');
+                    quoteAuthor.id = 'quote-author';
+                    quoteAuthor.innerHTML = quote.author;
+                    quoteDiv.appendChild(quoteAuthor);
+                    var quoteSource = document.createElement('p');
+                    quoteSource.id = 'quote-source';
+                    quoteSource.innerHTML = quote.source;
+                    quoteDiv.appendChild(quoteSource);
+                });
+        }
+        getQuote();
+    </script>
+</body>
+
+</html>
