@@ -22,10 +22,8 @@
         function getQuote() {
             fetch('https://mega-man-quotes.azurewebsites.net/random-quote')
                 .then(res => res.json())
-                .then(data => {
-                    var quote = data;
+                .then(quote => {
                     var quoteDiv = document.getElementById('quote');
-                    console.log(quoteDiv);
                     var quoteText = document.createElement('q');
                     quoteText.id = 'quote-text';
                     quoteText.innerHTML = quote.text;
@@ -41,6 +39,16 @@
                 });
         }
         getQuote();
+    </script>
+
+    <!-- Lame Google Tag Manager stuff -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNFTGSSJWE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-YNFTGSSJWE');
     </script>
 </body>
 
