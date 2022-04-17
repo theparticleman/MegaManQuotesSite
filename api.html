@@ -9,10 +9,24 @@
         <main>
             <h1>Mega Man Quotes</h1>
             <img src="Mega Man.png" atl="Mega Man">
-            <p>Do you have questions about this site or the quotes here? Feel free to <a href="https://mythicant.com/contact">contact me</a>.</p>
-            <p>Do you want to programmatically access these quotes in your own project? Find the API documentation <a href="api">here</a>.</p>
-            <p>Mega Man is actually owned by <a href="https://megaman.capcom.com/">Capcom</a>. I'm just using him to share software development related quotes.</p>
-            <p>The fonts used on this site are from <a href="https://www.fontsquirrel.com/fonts/nimbus-mono">here</a> and <a href="https://www.fontsquirrel.com/fonts/Silkscreen">here.</a></p>
+            <p>
+                You can use the API that powers this site in your own projects if you want to.
+                It uses an HTTP endpoint that returns JSON.
+            </p>
+            <p>
+                The endpoint you need to send an HTTP GET to is
+            </p>
+            <code>https://mega-man-quotes.azurewebsites.net/random-quote</code>
+            <p>
+                The endpoint will return a JSON object that looks something like this
+            </p>
+            <pre>
+{
+    'text': 'The main text of the quote',
+    'author': 'The name of the author',
+    'source': 'The source of the quote if available. Otherwise an empty string.'
+}
+            </pre>
         </main>
         <footer>
             <a href="https://mythicant.com">Mythicant</a>
@@ -20,7 +34,7 @@
             <a href="/">Home</a>
         </footer>
     </section>
-    
+
     <!-- Lame Google Tag Manager stuff -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNFTGSSJWE"></script>
     <script>
@@ -31,4 +45,5 @@
         gtag('config', 'G-YNFTGSSJWE');
     </script>
 </body>
+
 </html>
