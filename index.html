@@ -20,7 +20,7 @@
 
     <script>
         function getQuote() {
-            fetch('https://mega-man-quotes.azurewebsites.net/random-quote')
+            fetch('https://api.megamanquotes.com/random-quote')
                 .then(res => res.json())
                 .then(quote => {
                     var quoteDiv = document.getElementById('quote');
