@@ -51,6 +51,10 @@ img {
     margin-bottom: 16px;
 }
 
+a {
+    color: lightblue;
+}
+
 #quote {
     display: flex;
     flex-direction: column;
