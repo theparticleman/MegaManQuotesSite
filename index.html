@@ -44,7 +44,7 @@
         function getUrl() {
             const params = new URLSearchParams(location.search);
             if (params.has('id')) {
-                return 'http://api.megamanquotes.com/quotes/' + params.get('id');
+                return 'https://api.megamanquotes.com/quotes/' + params.get('id');
             } else {
                 return 'https://api.megamanquotes.com/random-quote';
             }
