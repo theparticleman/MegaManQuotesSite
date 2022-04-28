@@ -22,7 +22,8 @@
 
     <script>
         function getQuote() {
-            fetch('https://api.megamanquotes.com/random-quote')
+            let url = getUrl();
+            fetch(url)
                 .then(res => res.json())
                 .then(quote => {
                     var quoteDiv = document.getElementById('quote');
@@ -39,6 +40,15 @@
                     quoteSource.innerHTML = quote.source;
                     quoteDiv.appendChild(quoteSource);
                 });
+        }
+        function getUrl() {
+            const params = new URLSearchParams(location.search);
+            if (params.has('id')) {
+                return 'http://api.megamanquotes.com/quotes/' + params.get('id');
+            } else {
+                return 'https://api.megamanquotes.com/random-quote';
+            }
+
         }
         getQuote();
     </script>
