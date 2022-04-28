@@ -9,7 +9,7 @@
     <section>
         <main>
             <h1>Mega Man Quotes</h1>
-            <img src="Mega Man.png" atl="Mega Man">
+            <a href="/"><img src="Mega Man.png" atl="Mega Man"></a>
             <div id="quote"></div>
         </main>
         <footer>
@@ -27,18 +27,22 @@
                 .then(res => res.json())
                 .then(quote => {
                     var quoteDiv = document.getElementById('quote');
+                    var quoteLink = document.createElement('a');
+                    quoteLink.id = 'quote-link';
+                    quoteLink.href = '/?id=' + quote.id;
                     var quoteText = document.createElement('q');
                     quoteText.id = 'quote-text';
                     quoteText.innerHTML = quote.text;
-                    quoteDiv.appendChild(quoteText);
+                    quoteLink.appendChild(quoteText);
                     var quoteAuthor = document.createElement('p');
                     quoteAuthor.id = 'quote-author';
                     quoteAuthor.innerHTML = quote.author;
-                    quoteDiv.appendChild(quoteAuthor);
+                    quoteLink.appendChild(quoteAuthor);
                     var quoteSource = document.createElement('p');
                     quoteSource.id = 'quote-source';
                     quoteSource.innerHTML = quote.source;
-                    quoteDiv.appendChild(quoteSource);
+                    quoteLink.appendChild(quoteSource);
+                    quoteDiv.appendChild(quoteLink);
                 });
         }
         function getUrl() {
