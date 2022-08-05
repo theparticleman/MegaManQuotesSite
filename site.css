@@ -83,5 +83,22 @@ a {
 code, pre {
     font-size: larger;
     background-color: #202020;
+    padding: 16px;
+}
+
+code {
+    margin: 16px 0;
+}
+
+.api-endpoint {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: #101010;
     padding: 24px;
+    margin-bottom: 32px;
+}
+
+.api-endpoint h3,p {
+    margin: 8px 0;
 }
