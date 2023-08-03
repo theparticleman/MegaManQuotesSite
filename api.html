@@ -9,18 +9,19 @@
     <section>
         <main>
             <h1>Mega Man Quotes</h1>
-            <img src="Mega Man.png" atl="Mega Man">
-            <p>
-                You can use the API that powers this site in your own projects if you want to.
-                It uses HTTP endpoints that return JSON.
-            </p>
+            <img src="Mega Man.png" alt="Mega Man">
+            <div>
+                <p>
+                    You can use the API that powers this site in your own projects if you want to.
+                    It uses HTTP endpoints that return JSON.
+                </p>
 
-            <div class="api-endpoint">
-                <h2>Get Random Quote</h2>
-                <p>Get a randomly selected quote.</p>
-                <code>GET https://api.megamanquotes.com/random-quote</code>
-                <h3>Returns</h3>
-                <pre>
+                <div class="api-endpoint">
+                    <h2>Get Random Quote</h2>
+                    <p>Get a randomly selected quote.</p>
+                    <code>GET https://api.megamanquotes.com/random-quote</code>
+                    <h3>Returns</h3>
+                    <pre>
 {
     'id': 'The identifier of the quote'
     'text': 'The main text of the quote',
@@ -29,14 +30,14 @@
     'permalink': 'A permanent absolute URL to the quote'
 }
                 </pre>
-            </div>
+                </div>
 
-            <div class="api-endpoint">
-                <h2>Get Quote by Id</h2>
-                <p>Get a specific quote by id.</p>
-                <code>GET https://api.megamanquotes.com/quotes/{quote-id}</code>
-                <h3>Returns</h3>
-                <pre>
+                <div class="api-endpoint">
+                    <h2>Get Quote by Id</h2>
+                    <p>Get a specific quote by id.</p>
+                    <code>GET https://api.megamanquotes.com/quotes/{quote-id}</code>
+                    <h3>Returns</h3>
+                    <pre>
 {
     'id': 'The identifier of the quote'
     'text': 'The main text of the quote',
@@ -45,6 +46,33 @@
     'permalink': 'A permanent absolute URL to the quote'
 }
                 </pre>
+                </div>
+
+                <div class="api-endpoint">
+                    <h2>Search</h2>
+                    <p>Search all quotes for a specific term. If no matching quotes are found, an empty array is
+                        returned.</p>
+                    <code>GET https://api.megamanquotes.com/search/{search-term}</code>
+                    <h3>Returns</h3>
+                    <pre>
+[
+    {
+        'id': 'The identifier of first the quote'
+        'text': 'The main text of first the quote',
+        'author': 'The name of the first quote author',
+        'source': 'The source of the first quote if available. Otherwise an empty string.',
+        'permalink': 'A permanent absolute URL to the first quote'
+    },
+    {
+        'id': 'The identifier of the second quote'
+        'text': 'The main text of the second quote',
+        'author': 'The name of the second quote author',
+        'source': 'The source of the second quote if available. Otherwise an empty string.',
+        'permalink': 'A permanent absolute URL to the second quote'
+    }    
+]
+                    </pre>
+                </div>
             </div>
 
         </main>

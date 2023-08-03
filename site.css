@@ -14,6 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: x-large;
 }
 
 section {
@@ -90,6 +91,10 @@ code {
     margin: 16px 0;
 }
 
+pre {
+    white-space: pre-wrap;
+}
+
 .api-endpoint {
     display: flex;
     flex-direction: column;
@@ -99,6 +104,6 @@ code {
     margin-bottom: 32px;
 }
 
-.api-endpoint h3,p {
+.api-endpoint h3, .api-endpoint p {
     margin: 8px 0;
 }
