@@ -11,6 +11,7 @@
             <h1>Mega Man Quotes</h1>
             <a href="/"><img src="Mega Man.png" alt="Mega Man"></a>
             <div id="quote"></div>
+            <a class="searchButton" href="/search">Search Quotes</a>
         </main>
         <footer>
             <a href="https://mythicant.com">Mythicant</a>
@@ -28,18 +29,18 @@
                 .then(quote => {
                     var quoteDiv = document.getElementById('quote');
                     var quoteLink = document.createElement('a');
-                    quoteLink.id = 'quote-link';
+                    quoteLink.classList.add('quote-link');
                     quoteLink.href = '/?id=' + quote.id;
                     var quoteText = document.createElement('q');
-                    quoteText.id = 'quote-text';
+                    quoteText.classList.add('quote-text');
                     quoteText.innerHTML = quote.text;
                     quoteLink.appendChild(quoteText);
                     var quoteAuthor = document.createElement('p');
-                    quoteAuthor.id = 'quote-author';
+                    quoteAuthor.classList.add('quote-author');
                     quoteAuthor.innerHTML = quote.author;
                     quoteLink.appendChild(quoteAuthor);
                     var quoteSource = document.createElement('p');
-                    quoteSource.id = 'quote-source';
+                    quoteSource.classList.add('quote-source');
                     quoteSource.innerHTML = quote.source;
                     quoteLink.appendChild(quoteSource);
                     quoteDiv.appendChild(quoteLink);

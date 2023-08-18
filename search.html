@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <title>Mega Man Quotes - Search</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+
+<body>
+    <section>
+        <main>
+            <h1>Mega Man Quotes</h1>
+            <a href="/"><img src="Mega Man.png" alt="Mega Man"></a>
+            <div id="searchControls">
+                <input id="searchBox" type="text"  />
+                <button id="searchButton" type="submit" onclick="search()" >Search</button>
+            </div>
+            <div id="searchResults">
+            </div>
+        </main>
+        <footer>
+            <a href="https://mythicant.com">Mythicant</a>
+            <a href="https://github.com/theparticleman/MegaManQuotesCli">CLI</a>
+            <a href="api">API</a>
+            <a href="/">Home</a>
+        </footer>
+    </section>
+
+    <script>
+        let searchBoxElement = document.getElementById("searchBox");
+        searchBoxElement.addEventListener("keypress", event => {
+            console.log("keypress");
+            if (event.key === "Enter") search();
+        });
+        function search() {
+            let searchBoxElement = document.getElementById("searchBox");
+            let searchTerm = searchBoxElement.value.trim();
+            if (searchTerm === "") return;
+            let searchResultElement = document.getElementById("searchResults");
+            searchResultElement.innerHTML = "";
+            let url = "https://api.megamanquotes.com/search/" + searchTerm;
+            fetch(url)
+                .then(res => res.json())
+                .then(quotes => {
+                    quotes.forEach(quote => {
+                        let quoteElement = createQuoteElement(quote.permalink, quote.text, quote.author, quote.source);
+                        searchResultElement.appendChild(quoteElement);
+                    });
+                });
+        }
+
+        function createQuoteElement(permalink, text, author, source) {
+            let quoteElement = document.createElement("div");
+            quoteElement.classList.add("quote-search-result");
+            let linkElement = document.createElement("a");
+            linkElement.setAttribute("href", permalink);
+            linkElement.classList.add("quote-link");            
+            let textElement = document.createElement("q");
+            textElement.textContent += text;
+            textElement.classList.add("quote-text");
+            linkElement.appendChild(textElement);
+            let authorElement = document.createElement("p");
+            authorElement.textContent += author;
+            authorElement.classList.add("quote-author");
+            linkElement.appendChild(authorElement);
+            let sourceElement = document.createElement("p");
+            sourceElement.textContent += source;
+            sourceElement.classList.add("quote-source");
+            linkElement.appendChild(sourceElement);
+            quoteElement.appendChild(linkElement);
+            return quoteElement;
+        }
+    </script>
+
+    <!-- Lame Google Tag Manager stuff -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNFTGSSJWE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-YNFTGSSJWE');
+    </script>
+</body>
+
+</html>

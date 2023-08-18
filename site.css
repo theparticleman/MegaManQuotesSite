@@ -38,7 +38,7 @@ footer {
     justify-content: center;
     gap: 10%;
     margin-top: 32px;
-    margin-bottom: 24px;
+    padding-bottom: 64px;
 }
 
 h1 {
@@ -56,7 +56,40 @@ a {
     color: lightblue;
 }
 
-#quote-link {
+input {
+    background: black;
+    color: white;
+    font-family: headerFont;
+    font-size: 1em;
+    border: white 1px solid;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+button {
+    background: #101010;
+    color: white;
+    font-family: headerFont;
+    font-size: 1em;
+    padding: 12px;
+}
+
+.searchButton {
+    background-color: black;
+    font-family: headerFont;
+    font-size: 2.5vmax;
+    color: white;
+    padding: 16px;
+    margin: 128px 0 0 0;
+    border: 1px white solid;
+    border-radius: 8px;
+}
+
+#searchResults {
+    font-size: small;
+}
+
+.quote-link {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,21 +97,30 @@ a {
     color: white;
 }
 
-#quote-text {
-    font-size: 3vmax;
+.quote-text {
+    font-size: 2em;
     margin: 32px 0;
     text-align: center;
 }
 
-#quote-author {
-    font-size: 2vmax;
+.quote-author {
+    font-size: 1.5em;
     margin: 0 0 8px 0;
 }
 
-#quote-source {
-    font-size: 1.5vmax;
+.quote-source {
+    font-size: 1em;
     font-style: italic;
     margin: 0;
+}
+
+.quote-search-result {
+    font-size: smaller;
+    border: solid white 1px;
+    border-radius: 8px;
+    margin: 24px;
+    padding: 16px;
+    background-color: #202020;
 }
 
 code, pre {
