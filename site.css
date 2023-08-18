@@ -60,17 +60,21 @@ input {
     background: black;
     color: white;
     font-family: headerFont;
-    font-size: 1em;
+    font-size: 1.5em;
     border: white 1px solid;
     border-radius: 4px;
     padding: 12px;
+}
+
+input:focus::placeholder {
+    color: transparent;
 }
 
 button {
     background: #101010;
     color: white;
     font-family: headerFont;
-    font-size: 1em;
+    font-size: 1.5em;
     padding: 12px;
 }
 
@@ -86,7 +90,7 @@ button {
 }
 
 #searchResults {
-    font-size: small;
+    font-size: large;
 }
 
 .quote-link {
