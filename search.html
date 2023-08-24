@@ -35,7 +35,6 @@
     <script>
         let searchBoxElement = document.getElementById("searchBox");
         searchBoxElement.addEventListener("keypress", event => {
-            console.log("keypress");
             if (event.key === "Enter") search();
         });
         function search() {
