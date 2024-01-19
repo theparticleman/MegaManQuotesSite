@@ -21,6 +21,7 @@
                 <input id="searchBox" type="text" placeholder="Search quotes"  />
                 <button id="searchButton" type="submit" onclick="search()" >Search</button>
             </div>
+            <button id="copyUrlButton" type="submit" onclick="copyUrl()">Copy Search URL</button>
             <div id="searchResults">
             </div>
         </main>
@@ -33,29 +34,37 @@
     </section>
 
     <script>
-        let searchBoxElement = document.getElementById("searchBox");
-        searchBoxElement.addEventListener("keypress", event => {
+        const searchBoxElement = document.getElementById("searchBox");
+        searchBoxElement.addEventListener("keydown", event => {
             if (event.key === "Enter") search();
+            copyButton.innerHTML = "Copy Search URL";
         });
+        const copyButton = document.getElementById("copyUrlButton")
 
         attemptToHandleQueryParamSearchTerm();
         
         function attemptToHandleQueryParamSearchTerm() {
             const urlParams = new URLSearchParams(window.location.search);
-            const searchTerm = urlParams.get('term');
+            const searchTerm = urlParams.get("term");
             if (searchTerm) {
-                let searchBoxElement = document.getElementById("searchBox");
                 searchBoxElement.value = searchTerm;
                 search();
             }
         }
 
-        function search() {
-            let searchBoxElement = document.getElementById("searchBox");
+        function copyUrl() {
             let searchTerm = searchBoxElement.value.trim();
             if (searchTerm === "") return;
+            const newUrl = location.origin + "/search?term=" + encodeURIComponent(searchTerm);
+            navigator.clipboard.writeText(newUrl);
+            copyButton.innerHTML = "Copied!";
+        }
+
+        function search() {
+            let searchTerm = searchBoxElement.value.trim();
             let searchResultElement = document.getElementById("searchResults");
             searchResultElement.innerHTML = "";
+            if (searchTerm === "") return;
             let url = "https://api.megamanquotes.com/search/" + searchTerm;
             fetch(url)
                 .then(res => res.json())

@@ -93,6 +93,11 @@ button {
     font-size: large;
 }
 
+#copyUrlButton {
+    font-size: smaller;
+    margin-top: 8px;
+}
+
 .quote-link {
     display: flex;
     flex-direction: column;
