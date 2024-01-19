@@ -37,6 +37,19 @@
         searchBoxElement.addEventListener("keypress", event => {
             if (event.key === "Enter") search();
         });
+
+        attemptToHandleQueryParamSearchTerm();
+        
+        function attemptToHandleQueryParamSearchTerm() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchTerm = urlParams.get('term');
+            if (searchTerm) {
+                let searchBoxElement = document.getElementById("searchBox");
+                searchBoxElement.value = searchTerm;
+                search();
+            }
+        }
+
         function search() {
             let searchBoxElement = document.getElementById("searchBox");
             let searchTerm = searchBoxElement.value.trim();
