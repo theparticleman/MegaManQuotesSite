@@ -35,6 +35,7 @@
 
     <script>
         const searchBoxElement = document.getElementById("searchBox");
+        searchBoxElement.focus();
         searchBoxElement.addEventListener("keydown", event => {
             if (event.key === "Enter") search();
             copyButton.innerHTML = "Copy Search URL";
