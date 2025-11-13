@@ -115,12 +115,14 @@ button {
 .quote-author {
     font-size: 1.5em;
     margin: 0 0 8px 0;
+    text-align: center;
 }
 
 .quote-source {
     font-size: 1em;
     font-style: italic;
     margin: 0;
+    text-align: center;
 }
 
 .quote-search-result {
