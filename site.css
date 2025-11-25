@@ -78,13 +78,23 @@ button {
     padding: 12px;
 }
 
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 128px;
+}
+
+a:has(.searchButton) {
+  text-decoration: none;
+}
+
 .searchButton {
     background-color: black;
     font-family: headerFont;
     font-size: 2.5vmax;
     color: white;
     padding: 16px;
-    margin: 128px 0 0 0;
     border: 1px white solid;
     border-radius: 8px;
 }
@@ -96,6 +106,24 @@ button {
 #copyUrlButton {
     font-size: smaller;
     margin-top: 8px;
+}
+
+#copyImageButton {
+    font-size: 1.5em;
+    border: 1px white solid;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#copyImageButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#quote-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .quote-link {
@@ -110,6 +138,14 @@ button {
     font-size: 2em;
     margin: 32px 0;
     text-align: center;
+}
+
+.quote-text::before {
+    content: '“';
+}
+
+.quote-text::after {
+    content: '”';
 }
 
 .quote-author {

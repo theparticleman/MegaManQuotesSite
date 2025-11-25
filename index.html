@@ -15,10 +15,15 @@
 <body>
     <section>
         <main>
-            <h1>Mega Man Quotes</h1>
-            <a href="/"><img src="Mega Man.png" alt="Mega Man"></a>
-            <div id="quote"></div>
-            <a class="searchButton" href="/search">Search Quotes</a>
+            <div id="quote-display">
+                <h1>Mega Man Quotes</h1>
+                <a href="/"><img src="Mega Man.png" alt="Mega Man"></a>
+                <div id="quote"></div>
+            </div>
+            <div class="buttons">
+                <a href="/search"><div class="searchButton">Search Quotes</div></a>
+                <button id="copyImageButton" onclick="generateImage()">⧉</button>
+            </div>
         </main>
         <footer>
             <a href="https://mythicant.com">Mythicant</a>
@@ -28,6 +33,7 @@
         </footer>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         function getQuote() {
             let url = getUrl();
@@ -60,8 +66,44 @@
             } else {
                 return 'https://api.megamanquotes.com/random-quote';
             }
-
         }
+
+        async function generateImage() {
+            const button = document.getElementById('copyImageButton');
+            const originalText = button.textContent;
+            
+            try {
+                button.textContent = 'Generating...';
+                button.disabled = true;
+
+                const element = document.getElementById('quote-display');
+                const canvas = await html2canvas(element, {
+                    backgroundColor: '#000000',
+                    scale: 2
+                });
+
+                canvas.toBlob(async (blob) => {
+                    try {
+                        await navigator.clipboard.write([
+                            new ClipboardItem({ 'image/png': blob })
+                        ]);
+                        button.textContent = 'Copied!';
+                    } catch (err) {
+                        console.error('Failed to copy image:', err);
+                        button.textContent = 'Copy failed';
+                    }
+                });
+            } catch (err) {
+                console.error('Failed to generate image:', err);
+                button.textContent = 'Generation failed';
+            } finally {
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }, 2000);
+            }
+        }
+
         getQuote();
     </script>
 
