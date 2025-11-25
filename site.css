@@ -108,14 +108,15 @@ a:has(.searchButton) {
     margin-top: 8px;
 }
 
-#copyImageButton {
-    font-size: 1.5em;
+.copyButton {
     border: 1px white solid;
     border-radius: 8px;
     cursor: pointer;
+    padding: 8px;
+    font-size: xx-large;
 }
 
-#copyImageButton:disabled {
+.copyButton:disabled {
     cursor: not-allowed;
     opacity: 0.6;
 }

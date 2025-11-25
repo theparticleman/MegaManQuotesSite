@@ -22,7 +22,8 @@
             </div>
             <div class="buttons">
                 <a href="/search"><div class="searchButton">Search Quotes</div></a>
-                <button id="copyImageButton" onclick="generateImage()">⧉</button>
+                <button id="copyImageButton" class="copyButton" onclick="generateImage()">📷</button>
+                <button id="copyLinkButton" class="copyButton" onclick="copyQuoteLink()">📄</button>
             </div>
         </main>
         <footer>
@@ -96,6 +97,33 @@
             } catch (err) {
                 console.error('Failed to generate image:', err);
                 button.textContent = 'Generation failed';
+            } finally {
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }, 2000);
+            }
+        }
+
+        async function copyQuoteLink() {
+            const button = document.getElementById('copyLinkButton');
+            const originalText = button.textContent;
+            
+            try {
+                button.disabled = true;
+
+                const quoteLink = document.querySelector('.quote-link');
+                if (!quoteLink) {
+                    button.textContent = 'No quote found';
+                    return;
+                }
+
+                const absoluteUrl = new URL(quoteLink.href, window.location.origin).href;
+                await navigator.clipboard.writeText(absoluteUrl);
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy link:', err);
+                button.textContent = 'Copy failed';
             } finally {
                 setTimeout(() => {
                     button.textContent = originalText;
