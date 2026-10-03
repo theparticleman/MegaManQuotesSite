@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mega Man Quotes - MCP Server</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="shortcut icon" href="/favicon-128.png">
+    <link rel="icon" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" sizes="128x128" href="/favicon-128.png">
+    <link rel="icon" sizes="256x256" href="/favicon-256.png">
+</head>
+
+<body>
+    <section>
+        <main>
+            <h1>Mega Man Quotes</h1>
+            <a href="/"><img src="Mega Man.png" alt="Mega Man"></a>
+            <div>
+                <p>
+                    The Mega Man Quotes MCP (Model Context Protocol) server lets AI assistants like
+                    Claude access quotes directly. The server is available via HTTP POST at
+                    <code>https://api.megamanquotes.com/mcp</code>.
+                </p>
+
+                <div class="api-endpoint">
+                    <h2>Tools</h2>
+                    <p>Tools can be invoked by an AI assistant to retrieve quotes.</p>
+
+                    <h3>get_random_quote</h3>
+                    <p>Get a randomly selected quote from the collection. Takes no parameters.</p>
+
+                    <h3>get_quote_by_id</h3>
+                    <p>Get a specific quote by its unique identifier.</p>
+                    <h4>Parameters</h4>
+                    <pre>
+{
+    'id': 'The unique identifier of the quote'
+}
+                    </pre>
+
+                    <h3>search_quotes</h3>
+                    <p>Search for quotes by author, source, or text content.</p>
+                    <h4>Parameters</h4>
+                    <pre>
+{
+    'query': 'The search term to find in quotes'
+}
+                    </pre>
+                </div>
+
+                <div class="api-endpoint">
+                    <h2>Resources</h2>
+                    <p>Resources can be read directly by an AI assistant using their URI.</p>
+
+                    <h3>quotes://random</h3>
+                    <p>A random quote from the collection. Returns a different quote each time it is read.</p>
+
+                    <h3>quotes://quote/{id}</h3>
+                    <p>A specific quote identified by its unique ID.</p>
+                </div>
+
+                <div class="api-endpoint">
+                    <h2>Response format</h2>
+                    <p>All tools and resources return quote data as plain text in the following format:</p>
+                    <pre>
+"Quote text here"
+— Author Name, Source
+(ID: 1234, Permalink: https://megamanquotes.com/?id=1234)
+                    </pre>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <a href="https://mythicant.com">Mythicant</a>
+            <a href="https://github.com/theparticleman/MegaManQuotesCli">CLI</a>
+            <a href="api">API</a>
+            <a href="/">Home</a>
+        </footer>
+    </section>
+
+    <!-- Lame Google Tag Manager stuff -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNFTGSSJWE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-YNFTGSSJWE');
+    </script>
+</body>
+
+</html>
